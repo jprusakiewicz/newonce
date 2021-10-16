@@ -1,0 +1,15 @@
+# Project exclude paths
+/venv/
+env
+__pycache__/
+*.py[cod]
+.installed.cfg
+bin
+develop-eggs
+dist
+downloads
+eggs
+parts
+src/*.egg-info
+lib
+lib64
