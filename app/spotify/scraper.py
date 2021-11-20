@@ -95,9 +95,12 @@ class Scraper:
         return new
 
     def get_songs_features(self, album_name: str, artist: str) -> dict:
-        album_details = self.search_spotify_album(album_name, artist)
-        album_id = album_details['id']
-        tracks = self.get_album_tracks(album_id)
-        tracks_features = self.get_named_tracks_features(tracks)
-        features = {'tracks_features': tracks_features, 'album_details': album_details}
+        try:
+            album_details = self.search_spotify_album(album_name, artist)
+            album_id = album_details['id']
+            tracks = self.get_album_tracks(album_id)
+            tracks_features = self.get_named_tracks_features(tracks)
+            features = {'result': 'success', 'tracks_features': tracks_features, 'album_details': album_details}
+        except IndexError:
+            features = {'result': 'not_found'}
         return features
