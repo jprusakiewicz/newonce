@@ -11,7 +11,7 @@ logger = setup_custom_logger('worker', settings.LOG_LEVEL)
 
 
 @router.get("/songs_features", tags=[FIRST_MODULE_TAG])
-async def test_first_module(album: str, artist: str):
+async def songs_features(album: str, artist: str):
     logger.info("module test request")
     songs_features = get_songs_features(album, artist)
     return JSONResponse(

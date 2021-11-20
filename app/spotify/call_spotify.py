@@ -1,8 +1,7 @@
 import base64
 import json
-import logging
 from typing import List
-import os
+
 import requests
 
 
@@ -111,5 +110,6 @@ def get_songs_features(album_name: str, artist: str) -> dict:
     album_id = album_details['id']
     tracks = get_album_tracks(album_id)
     tracks_features = get_named_tracks_features(tracks)
-    return {'tracks_features': tracks_features}
-
+    features = {'tracks_features': tracks_features}
+    features['album_details'] = album_details
+    return features
