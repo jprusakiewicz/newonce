@@ -4,7 +4,7 @@ from typing import List
 
 import requests
 
-CREDENTIALS_PATH = "./spotify/spotify_credentials.txt"
+CREDENTIALS_PATH = "./spotify/api_credentials.txt"
 
 
 class Scraper:
